@@ -78,7 +78,7 @@ sap.ui.define([
 				// 	ObjectID :  sObjectId
 				// });
 				// this._bindView("/" + sObjectPath);
-			this._bindView("/Products(" + sObjectId + ")")
+			this._bindView("/Products(" + sObjectId + ")");
 			}.bind(this));
 		},
 

@@ -2,7 +2,8 @@
 	controllerName="sap.ui.demo.worklist.controller.Object"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic">
+	xmlns:semantic="sap.f.semantic"
+	xmlns:form="sap.ui.layout.form">
 
 	<semantic:SemanticPage
 		id="page"
@@ -26,6 +27,31 @@
 			/>
 		</semantic:headerContent>
 
+<semantic:content>
+
+			<Panel class="sapUiNoContentPadding" headerText="{i18n>ObjectSupplierTabTitle}">
+				<content>
+					<form:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+						<form:content>
+							<Label text="{i18n>ObjectSupplierID}"/>
+							<Text text="{Supplier/ID}"/>
+							<Label text="{i18n>ObjectSupplierName}"/>
+							<Text text="{Supplier/Name}"/>
+							<Label text="{i18n>ObjectSupplierStreet}"/>
+							<Text text="{Supplier/Address/Street}"/>
+							<Label text="{i18n>ObjectSupplierCity}"/>
+							<Text text="{Supplier/Address/City}"/>
+							<Label text="{i18n>ObjectSupplierZipcode}"/>
+							<Text text="{Supplier/Address/ZipCode}"/>
+							<Label text="{i18n>ObjectSupplierCountry}"/>
+							<Text text="{Supplier/Address/Country}"/>
+						</form:content>
+					</form:SimpleForm>
+				</content>
+			</Panel>
+			
+		</semantic:content>
+		
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
 		</semantic:sendEmailAction>

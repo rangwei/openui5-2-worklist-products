@@ -19,7 +19,16 @@
 			<Table
 				id="table"
 				width="auto"
-				items="{/Products}"
+				items="{
+					path: '/Products',
+					sorter: {
+						path: 'ID',
+						descending: false
+					},
+					parameters: {
+						'expand': 'Supplier'
+					}
+				}"
 				noDataText="{worklistView>/tableNoDataText}"
 				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
 				growing="true"
@@ -50,6 +59,9 @@
 					<Column id="nameColumn">
 						<Text text="{i18n>Product Name}" id="nameColumnTitle"/>
 					</Column>
+					<Column id="supplierNameColumn" demandPopin="false" minScreenWidth="Tablet">
+						<Text text="{i18n>TableSupplierColumnTitle}"/>
+					</Column>
 					<Column id="unitNumberColumn" hAlign="End">
 						<Text text="{i18n>Product Price}" id="unitNumberColumnTitle"/>
 					</Column>
@@ -62,6 +74,7 @@
 						<cells>
 							<ObjectIdentifier
 								title="{ID}"/>
+							<Text text = "{Supplier/Name}"/>
 							<ObjectNumber
 								number="{
 									path: 'Price'
